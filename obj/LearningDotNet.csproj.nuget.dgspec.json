@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "/Users/coolbeatz/projects/learn-dotnet/learning-dotnet.csproj": {}
+    "/Users/coolbeatz/projects/learn-dotnet/LearningDotNet.csproj": {}
   },
   "projects": {
-    "/Users/coolbeatz/projects/learn-dotnet/learning-dotnet.csproj": {
+    "/Users/coolbeatz/projects/learn-dotnet/LearningDotNet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/coolbeatz/projects/learn-dotnet/learning-dotnet.csproj",
-        "projectName": "learning-dotnet",
-        "projectPath": "/Users/coolbeatz/projects/learn-dotnet/learning-dotnet.csproj",
+        "projectUniqueName": "/Users/coolbeatz/projects/learn-dotnet/LearningDotNet.csproj",
+        "projectName": "LearningDotNet",
+        "projectPath": "/Users/coolbeatz/projects/learn-dotnet/LearningDotNet.csproj",
         "packagesPath": "/Users/coolbeatz/.nuget/packages/",
         "outputPath": "/Users/coolbeatz/projects/learn-dotnet/obj/",
         "projectStyle": "PackageReference",
@@ -17,14 +17,14 @@
           "/Users/coolbeatz/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -41,8 +41,8 @@
         "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "imports": [
             "net461",
             "net462",
@@ -54,20 +54,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.osx-arm64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

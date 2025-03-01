@@ -1,4 +1,6 @@
-﻿namespace LearningDotNet;
+﻿using LearningDotNet.Extension;
+
+namespace LearningDotNet;
 
 class Program
 {
@@ -18,7 +20,7 @@ class Program
         this.FirstName = firstName ?? throw  new ArgumentNullException(nameof(firstName));
         this.LastName = lastName ?? throw  new ArgumentNullException(nameof(lastName));
         
-        string fullName = String.Concat(firstName, " ", lastName);
+        string fullName = String.Concat(firstName, " ", lastName).ToTitleCase();
         return $"Hello, {fullName}!";
     }
 

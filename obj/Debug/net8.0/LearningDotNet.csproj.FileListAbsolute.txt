@@ -1,0 +1,15 @@
+/Users/coolbeatz/projects/learn-dotnet/bin/Debug/net8.0/LearningDotNet
+/Users/coolbeatz/projects/learn-dotnet/bin/Debug/net8.0/LearningDotNet.deps.json
+/Users/coolbeatz/projects/learn-dotnet/bin/Debug/net8.0/LearningDotNet.runtimeconfig.json
+/Users/coolbeatz/projects/learn-dotnet/bin/Debug/net8.0/LearningDotNet.dll
+/Users/coolbeatz/projects/learn-dotnet/bin/Debug/net8.0/LearningDotNet.pdb
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/LearningDotNet.GeneratedMSBuildEditorConfig.editorconfig
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/LearningDotNet.AssemblyInfoInputs.cache
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/LearningDotNet.AssemblyInfo.cs
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/LearningDotNet.csproj.CoreCompileInputs.cache
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/LearningDotNet.sourcelink.json
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/LearningDotNet.dll
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/refint/LearningDotNet.dll
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/LearningDotNet.pdb
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/LearningDotNet.genruntimeconfig.cache
+/Users/coolbeatz/projects/learn-dotnet/obj/Debug/net8.0/ref/LearningDotNet.dll

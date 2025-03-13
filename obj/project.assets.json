@@ -1,36 +1,36 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net9.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net9.0": []
   },
   "packageFolders": {
-    "/home/coolbeatz71/.nuget/packages/": {}
+    "/Users/coolbeatz/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/coolbeatz71/projects/learning-dotnet/learning-dotnet.csproj",
-      "projectName": "learning-dotnet",
-      "projectPath": "/home/coolbeatz71/projects/learning-dotnet/learning-dotnet.csproj",
-      "packagesPath": "/home/coolbeatz71/.nuget/packages/",
-      "outputPath": "/home/coolbeatz71/projects/learning-dotnet/obj/",
+      "projectUniqueName": "/Users/coolbeatz/projects/learn-dotnet/LearningDotNet.csproj",
+      "projectName": "LearningDotNet",
+      "projectPath": "/Users/coolbeatz/projects/learn-dotnet/LearningDotNet.csproj",
+      "packagesPath": "/Users/coolbeatz/.nuget/packages/",
+      "outputPath": "/Users/coolbeatz/projects/learn-dotnet/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/coolbeatz71/.nuget/NuGet/NuGet.Config"
+        "/Users/coolbeatz/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net9.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "projectReferences": {}
         }
       },
@@ -38,11 +38,17 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net9.0": {
+        "targetAlias": "net9.0",
         "imports": [
           "net461",
           "net462",
@@ -59,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.107/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

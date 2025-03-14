@@ -19,18 +19,16 @@ public class Rocket
     /// </example>
     internal void StartLanding()
     {
-        string rocket = GenerateRocket();
-        int consoleHeight = Console.WindowHeight - CountRocketLines(rocket);
-
+        string rocket = this.GenerateRocket();
+        int consoleHeight = Console.WindowHeight - this.CountRocketLines(rocket);
+        
         for (int i = 0; i < consoleHeight; i++)
         {
             Console.Clear();
-            PrintRocket(i, rocket, i < consoleHeight - 3);
+            DrawRocket(i, rocket, i < consoleHeight - 1);
             Thread.Sleep(100);
         }
-
-        Console.Clear();
-        PrintRocket(consoleHeight, rocket, false);
+        
         Console.WriteLine("\n🚀 The rocket has landed safely! Mission Success! 🎉");
     }
 
@@ -74,7 +72,7 @@ public class Rocket
     /// <example>
     /// <code>
     /// string rocket = GenerateRocket();
-    /// int lineCount = CountRocketLines(rocket); // Returns the number of lines in the rocket string.
+    /// int lineCount = CountRocketLines(rocket); // Returns 16.
     /// </code>
     /// </example>
     private int CountRocketLines(string rocket)
@@ -83,7 +81,7 @@ public class Rocket
     }
 
     /// <summary>
-    /// Prints the rocket at a specific position in the console.
+    /// Draws the rocket at a specific position in the console.
     /// Optionally, displays thrusters below the rocket.
     /// </summary>
     /// <param name="topPadding">The number of empty lines to add above the rocket.</param>
@@ -92,17 +90,17 @@ public class Rocket
     /// <example>
     /// <code>
     /// string rocket = GenerateRocket();
-    /// PrintRocket(5, rocket, true); // Prints the rocket with 5 empty lines above it and thrusters.
+    /// DrawRocket(5, rocket, true); // Prints the rocket with 5 empty lines above it and thrusters.
     /// </code>
     /// </example>
-    private void PrintRocket(int topPadding, string rocket, bool showThrusters)
+    private void DrawRocket(int topPadding, string rocket, bool showThrusters)
     {
         Console.Write(new string('\n', topPadding));
         Console.Write(rocket);
 
         if (showThrusters)
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~");
             }

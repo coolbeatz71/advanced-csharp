@@ -19,13 +19,12 @@ public class Rocket
     /// </example>
     internal void StartLanding()
     {
-        string rocket = this.GenerateRocket();
-        int consoleHeight = Console.WindowHeight - this.CountRocketLines(rocket);
+        int consoleHeight = Console.WindowHeight - this.GetRocketHeight();
         
         for (int i = 0; i < consoleHeight; i++)
         {
             Console.Clear();
-            DrawRocket(i, rocket, i < consoleHeight - 1);
+            DrawRocket(i, this.GenerateRocket(), i < consoleHeight - 1);
             Thread.Sleep(100);
         }
         
@@ -66,18 +65,18 @@ public class Rocket
 
     /// <summary>
     /// Counts the number of lines in the rocket string.
+    /// This will be the rocket total height
     /// </summary>
-    /// <param name="rocket">The rocket string to count lines from.</param>
     /// <returns>The number of lines in the rocket string.</returns>
     /// <example>
     /// <code>
     /// string rocket = GenerateRocket();
-    /// int lineCount = CountRocketLines(rocket); // Returns 16.
+    /// int lineCount = GetRocketHeight(rocket); // Returns 16.
     /// </code>
     /// </example>
-    private int CountRocketLines(string rocket)
+    private int GetRocketHeight()
     {
-        return rocket.Split('\n').Length;
+        return this.GenerateRocket().Split('\n').Length;
     }
 
     /// <summary>
@@ -100,7 +99,7 @@ public class Rocket
 
         if (showThrusters)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~");
             }

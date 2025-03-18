@@ -1,16 +1,19 @@
-﻿namespace LearningDotNet;
-class Program
+﻿using LearningDotNet.Enums;
+
+namespace LearningDotNet;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
         // // Get user's name and print a greeting
-        // Program.GreetingUserName();
+        Program.GreetingUserName();
         //
         // // Simulate a rocket landing
-        // Program.SimulateRocketLanding();
+        Program.SimulateRocketLanding();
         //
         // // Work with a 2D array and calculate row sums
-        // Program.CalculateRowSums();
+        Program.CalculateRowSums();
 
         Program.CalculateTemperatureAverage();
     }
@@ -55,9 +58,26 @@ class Program
     private static void CalculateTemperatureAverage()
     {
         Weather weather = new Weather();
-        Console.WriteLine("What's your days?");
+        Console.WriteLine("Enter the number of days to simulate");
         int days =  Convert.ToInt32(Console.ReadLine());
+        
+        int[] temperatures = new int[days];
+        string[] conditions = new string[days];
+        
+        Random random = new Random();
+        for (int i = 0; i < days; i++)
+        {
+            temperatures[i] = random.Next(-10, 40);
 
-        Console.WriteLine($"the average is {weather.GetAverageTemperature(days)}");
+            conditions[i] = temperatures[i] switch
+            {
+                < 0 => nameof(EnumWeather.Snowy),
+                >= 10 and < 20 => nameof(EnumWeather.Cloudy),
+                >= 20 and < 30 => nameof(EnumWeather.Rainy),
+                _ => nameof(EnumWeather.Sunny)
+            };
+        }
+
+        Console.WriteLine($"the average is {weather.GetAverageTemperature(days)}")};
     }
 }

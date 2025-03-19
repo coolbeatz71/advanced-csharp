@@ -5,7 +5,7 @@ public class Weather
     internal double GetAverageTemperature(int[] temperatures)
     {
         double sum = 0;
-        for (var i = 0; i < temperatures.Length; i++)
+        for (int i = 0; i < temperatures.Length; i++)
         {
             sum += temperatures[i];
         }
@@ -64,7 +64,7 @@ public class Weather
     // }
     
     // BigO(n) - optimized
-    internal string MostCommonCondition(string[] conditions)
+    internal string GetMostCommonCondition(string[] conditions)
     {
         var frequencyMap = new Dictionary<string, int>();
 

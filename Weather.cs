@@ -39,7 +39,7 @@ public class Weather
         return min;
     }
     
-    // BigO(n^2) - not optimized
+    // BigO(n^2) - raw but not optimized
     // internal string MostCommonCondition(string[] conditions)
     // {
     //     var count = 0;
@@ -64,6 +64,7 @@ public class Weather
     // }
     
     // BigO(n) - optimized
+    // uses frequency counter algorithm to get the number of occurrences
     internal string GetMostCommonCondition(string[] conditions)
     {
         var frequencyMap = new Dictionary<string, int>();
@@ -72,7 +73,7 @@ public class Weather
         foreach (var condition in conditions)
         {
             // if the key doesn't exist in the map, adds it with value 1,
-            // else move to the next key in the map 
+            // else increment the keys value (+1) 
             if (!frequencyMap.TryAdd(condition, 1))
             {
                 frequencyMap[condition]++;

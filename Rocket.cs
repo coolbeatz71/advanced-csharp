@@ -24,7 +24,7 @@ public class Rocket
         for (int i = 0; i < consoleHeight; i++)
         {
             Console.Clear();
-            DrawRocket(i, this.GenerateRocket(), i < consoleHeight - 1);
+            this.DrawRocket(i, this.GenerateRocket(), i < consoleHeight - 1);
             Thread.Sleep(100);
         }
         
@@ -97,12 +97,10 @@ public class Rocket
         Console.Write(new string('\n', topPadding));
         Console.Write(rocket);
 
-        if (showThrusters)
+        if (!showThrusters) return;
+        for (var i = 0; i < 2; i++)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                Console.WriteLine("~~~~~~~~~~~~~~~~~~~~");
-            }
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~");
         }
     }
 }

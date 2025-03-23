@@ -3,14 +3,16 @@ class Program
 {
     private static void Main(string[] args)
     {
-        // Get user's name and print a greeting
-        Program.GreetingUserName();
+        // // Get user's name and print a greeting
+        // Program.GreetingUserName();
+        //
+        // // Simulate a rocket landing
+        // Program.SimulateRocketLanding();
+        //
+        // // Work with a 2D array and calculate row sums
+        // Program.CalculateRowSums();
 
-        // Simulate a rocket landing
-        Program.SimulateRocketLanding();
-
-        // Work with a 2D array and calculate row sums
-        Program.CalculateRowSums();
+        Program.CalculateTemperatureAverage();
     }
 
     private static void GreetingUserName()
@@ -48,5 +50,14 @@ class Program
         {
             Console.WriteLine($"Sum of row {row + 1} = {ad.GetRowSum(row)}");
         }
+    }
+
+    private static void CalculateTemperatureAverage()
+    {
+        Weather weather = new Weather();
+        Console.WriteLine("What's your days?");
+        int days =  Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine($"the average is {weather.GetAverageTemperature(days)}");
     }
 }

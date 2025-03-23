@@ -68,7 +68,6 @@ internal class Program
         for (int i = 0; i < days; i++)
         {
             temperatures[i] = random.Next(-10, 40);
-
             conditions[i] = temperatures[i] switch
             {
                 < 0 => nameof(EnumWeather.Snowy),
@@ -78,6 +77,9 @@ internal class Program
             };
         }
 
-        Console.WriteLine($"the average is {weather.GetAverageTemperature(days)}")};
+        Console.WriteLine($"The average temperature is {weather.GetAverageTemperature(temperatures)} °C");
+        Console.WriteLine($"The Minimum temperature is {weather.GetMinTemperature(temperatures)} °C");
+        Console.WriteLine($"The Maximum temperature is {weather.GetMaxTemperature(temperatures)} °C");
+        Console.WriteLine($"The Most common condition is '{weather.GetMostCommonCondition(conditions)}'");
     }
 }

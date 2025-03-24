@@ -14,8 +14,9 @@ internal class Program
         //
         // // Work with a 2D array and calculate row sums
         Program.CalculateRowSums();
-
-        Program.CalculateTemperatureAverage();
+        //
+        // // Get weather and temperature statistics
+        Program.CalculateTemperatureStats();
     }
 
     private static void GreetingUserName()
@@ -55,31 +56,55 @@ internal class Program
         }
     }
 
-    private static void CalculateTemperatureAverage()
+    private static void CalculateTemperatureStats()
     {
-        Weather weather = new Weather();
-        Console.WriteLine("Enter the number of days to simulate");
-        int days =  Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter the number of days to simulate the weather");
+        int days = Program.GetValidDaysInput();
+
+        var (temperatures, conditions) = Program.GenerateWeatherData(days);
+        Weather weather = new Weather(temperatures, conditions);
+
+        // the :F1 is to format double to only show 1 decimal place (e.g: "23.5") 
+        Console.WriteLine($"The average temperature is {weather.GetAverageTemperature():F1} °C");
         
+        Console.WriteLine($"The Minimum temperature is {weather.GetMinTemperature()} °C");
+        Console.WriteLine($"The Maximum temperature is {weather.GetMaxTemperature()} °C");
+        Console.WriteLine($"The Most common condition is '{weather.GetMostCommonCondition()}'");
+    }
+
+    private static int GetValidDaysInput()
+    {
+        int days;
+
+        while (true)
+        {
+            if (int.TryParse(Console.ReadLine(), out days) && days > 0)
+            {
+                return days;
+            }
+
+            Console.WriteLine("Invalid input. Please enter a positive number:");
+        }
+    }
+
+    private static (int[] temperatures, string[] conditions) GenerateWeatherData(int days)
+    {
+        Random random = new Random();
         int[] temperatures = new int[days];
         string[] conditions = new string[days];
-        
-        Random random = new Random();
+
         for (int i = 0; i < days; i++)
         {
             temperatures[i] = random.Next(-10, 40);
             conditions[i] = temperatures[i] switch
             {
                 < 0 => nameof(EnumWeather.Snowy),
-                >= 10 and < 20 => nameof(EnumWeather.Cloudy),
-                >= 20 and < 30 => nameof(EnumWeather.Rainy),
-                _ => nameof(EnumWeather.Sunny)
+                >= 0 and < 15 => nameof(EnumWeather.Rainy),
+                >= 15 and < 25 => nameof(EnumWeather.Cloudy),
+                _ => nameof(EnumWeather.Sunny),
             };
         }
 
-        Console.WriteLine($"The average temperature is {weather.GetAverageTemperature(temperatures)} °C");
-        Console.WriteLine($"The Minimum temperature is {weather.GetMinTemperature(temperatures)} °C");
-        Console.WriteLine($"The Maximum temperature is {weather.GetMaxTemperature(temperatures)} °C");
-        Console.WriteLine($"The Most common condition is '{weather.GetMostCommonCondition(conditions)}'");
+        return (temperatures, conditions);
     }
 }

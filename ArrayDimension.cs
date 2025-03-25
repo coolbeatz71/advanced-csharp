@@ -22,8 +22,8 @@ public class ArrayDimension(int[,] myArray)
     ///     { 7, 8, 9 }
     /// };
     ///
-    /// ArrayDimension arrayDimension = new ArrayDimension(array);
-    /// int rowSum = arrayDimension.GetRowSum(1); // Calculates the sum of the second row (4 + 5 + 6)
+    /// ArrayDimension ad = new ArrayDimension(array);
+    /// int rowSum = ad.GetRowSum(1); // Calculates the sum of the second row (4 + 5 + 6)
     /// Console.WriteLine("Sum of row 1: " + rowSum); // Output: Sum of row 1: 15
     /// </code>
     /// </example>

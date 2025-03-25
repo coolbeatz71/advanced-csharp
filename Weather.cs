@@ -6,10 +6,18 @@ namespace LearningDotNet;
 /// </summary>
 public class Weather
 {
+    private int[] Temperatures { get; }
+    private string[] Conditions { get; }
+    
+    public Weather(int[] temperatures, string[] conditions)
+    {
+        Temperatures = temperatures ?? throw new ArgumentNullException(nameof(temperatures));
+        Conditions = conditions ?? throw new ArgumentNullException(nameof(conditions));
+    }
+    
     /// <summary>
     /// Calculates the average temperature from an array of temperature values.
     /// </summary>
-    /// <param name="temperatures">An array of integer temperature values</param>
     /// <returns>The average temperature as a double value</returns>
     /// <example>
     /// <code>
@@ -19,21 +27,22 @@ public class Weather
     /// Console.WriteLine(avgTemp); // Output: 74.0
     /// </code>
     /// </example>
-    internal double GetAverageTemperature(int[] temperatures)
+    internal double GetAverageTemperature()
     {
+        Weather.ValidateData(this.Temperatures, "Temperatures");
+        
         double sum = 0;
-        for (int i = 0; i < temperatures.Length; i++)
+        for (int i = 0; i < this.Temperatures.Length; i++)
         {
-            sum += temperatures[i];
+            sum += this.Temperatures[i];
         }
 
-        return sum / temperatures.Length;
+        return sum / this.Temperatures.Length;
     }
     
     /// <summary>
     /// Finds the maximum temperature from an array of temperature values.
     /// </summary>
-    /// <param name="temperatures">An array of integer temperature values</param>
     /// <returns>The highest temperature value in the array</returns>
     /// <example>
     /// <code>
@@ -44,13 +53,14 @@ public class Weather
     /// </code>
     /// </example>
 
-    internal int GetMaxTemperature(int[] temperatures)
+    internal int GetMaxTemperature()
     {
-        var max = temperatures[0];
-
-        for (var i = 0; i < temperatures.Length; i++)
+        Weather.ValidateData(this.Temperatures, "Temperatures");
+        
+        var max = this.Temperatures[0];
+        for (var i = 0; i < this.Temperatures.Length; i++)
         {
-            var temp = temperatures[i];
+            var temp = this.Temperatures[i];
             if (temp > max) max = temp;
         }
 
@@ -60,7 +70,6 @@ public class Weather
     /// <summary>
     /// Finds the minimum temperature from an array of temperature values.
     /// </summary>
-    /// <param name="temperatures">An array of integer temperature values</param>
     /// <returns>The lowest temperature value in the array</returns>
     /// <example>
     /// <code>
@@ -70,13 +79,14 @@ public class Weather
     /// Console.WriteLine(minTemp); // Output: 68
     /// </code>
     /// </example>
-    internal int GetMinTemperature(int[] temperatures)
+    internal int GetMinTemperature()
     {
-        var min = temperatures[0];
-
-        for (var i = 0; i < temperatures.Length; i++)
+        Weather.ValidateData(this.Temperatures, "Temperatures");
+        
+        var min = this.Temperatures[0];
+        for (var i = 0; i < this.Temperatures.Length; i++)
         {
-            var temp = temperatures[i];
+            var temp = this.Temperatures[i];
             if (temp < min) min = temp;
         }
 
@@ -111,7 +121,6 @@ public class Weather
     /// Determines the most frequently occurring weather condition from an array of conditions.
     /// Uses a frequency counter algorithm for optimal performance (O(n) time complexity).
     /// </summary>
-    /// <param name="conditions">An array of weather condition strings</param>
     /// <returns>The most common weather condition</returns>
     /// <example>
     /// <code>
@@ -121,13 +130,15 @@ public class Weather
     /// Console.WriteLine(commonCondition); // Output: "Sunny"
     /// </code>
     /// </example>
-    internal string GetMostCommonCondition(string[] conditions)
+    internal string GetMostCommonCondition()
     {
+        Weather.ValidateData(this.Conditions, "Conditions");
+        
         var frequencyMap = new Dictionary<string, int>();
 
         // Build the frequency Map
         // Adds conditions and their counter frequencies to the Map
-        foreach (var condition in conditions)
+        foreach (var condition in this.Conditions)
         {
             // if the key doesn't exist in the map, adds it with value 1,
             // else increment the key's value (+1) 
@@ -153,5 +164,11 @@ public class Weather
         }
 
         return common;
+    }
+    
+    private static void ValidateData<T>(IEnumerable<T> data, string label)
+    {
+        if (data == null || !data.Any())
+            throw new InvalidOperationException($"No Data Available. Please Provide ${label}.");
     }
 }

@@ -63,22 +63,23 @@ internal class Program
 
         var (temperatures, conditions) = Program.GenerateWeatherData(days);
         Weather weather = new Weather(temperatures, conditions);
-
-        // the :F1 is to format double to only show 1 decimal place (e.g: "23.5") 
-        Console.WriteLine($"The average temperature is {weather.GetAverageTemperature():F1} °C");
         
-        Console.WriteLine($"The Minimum temperature is {weather.GetMinTemperature()} °C");
-        Console.WriteLine($"The Maximum temperature is {weather.GetMaxTemperature()} °C");
-        Console.WriteLine($"The Most common condition is '{weather.GetMostCommonCondition()}'");
+        Console.WriteLine($"Temperatures: [{string.Join(", ", temperatures)}]");
+        Console.WriteLine($"Conditions: [{string.Join(", ", conditions)}]\n");
+
+        // the :F1 formats double to only show 1 decimal place (e.g: "23.5") 
+        Console.WriteLine($"- Average temperature: {weather.GetAverageTemperature():F1} °C");
+        
+        Console.WriteLine($"- Minimum temperature: {weather.GetMinTemperature()} °C");
+        Console.WriteLine($"- Maximum temperature: {weather.GetMaxTemperature()} °C");
+        Console.WriteLine($"- Most common condition: '{weather.GetMostCommonCondition()}'");
     }
 
     private static int GetValidDaysInput()
     {
-        int days;
-
         while (true)
         {
-            if (int.TryParse(Console.ReadLine(), out days) && days > 0)
+            if (int.TryParse(Console.ReadLine(), out var days) && days > 0)
             {
                 return days;
             }

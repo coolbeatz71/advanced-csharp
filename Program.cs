@@ -68,10 +68,10 @@ internal class Program
         Console.WriteLine($"Conditions: [{string.Join(", ", conditions)}]\n");
 
         // the :F1 formats double to only show 1 decimal place (e.g: "23.5") 
-        Console.WriteLine($"- Average temperature: {weather.GetAverageTemperature():F1} °C");
+        Console.WriteLine($"- Average temperature: {weather.GetAverageTemperature():F1}°C");
         
-        Console.WriteLine($"- Minimum temperature: {weather.GetMinTemperature()} °C");
-        Console.WriteLine($"- Maximum temperature: {weather.GetMaxTemperature()} °C");
+        Console.WriteLine($"- Minimum temperature: {weather.GetMinTemperature()}°C");
+        Console.WriteLine($"- Maximum temperature: {weather.GetMaxTemperature()}°C");
         Console.WriteLine($"- Most common condition: '{weather.GetMostCommonCondition()}'");
     }
 

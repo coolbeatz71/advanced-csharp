@@ -2,13 +2,13 @@ namespace LearningDotNet;
 
 public class Question
 {
-    public string QuestionTitle { get; set; }
+    public string Title { get; set; }
     public string[] Answers { get; set; }
-    private int CorrectAnswerIndex { get; set; }
+    public int CorrectAnswerIndex { get; set; }
 
-    public Question(string questionTitle, string[] answers, int correctAnswerIndex)
+    public Question(string title, string[] answers, int correctAnswerIndex)
     {
-        this.QuestionTitle = questionTitle;
+        this.Title = title;
         this.Answers = answers;
         this.CorrectAnswerIndex = correctAnswerIndex;
     }

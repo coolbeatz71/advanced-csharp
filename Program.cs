@@ -18,18 +18,21 @@ internal class Program
         // // Get weather and temperature statistics
         Program.CalculateTemperatureStats();
 
-        Question[] questions = new Question[]
-        {
+        Question[] questions =
+        [
             new Question(
                 "What is the Capital City of DR Congo?",
                 ["Kinshasa", "Kigali", "Johannesburg", "Paris"],
-                1),
+                0),
             new Question(
-                "What is the square root of 16: \u221a 16?",
+                "What is the square root of 16: (\u221a 16)?",
                     ["2", "5", "4", "12"],
-                3
+                2
                 )
-        };
+        ];
+        
+        Quiz quiz = new Quiz(questions);
+        quiz.StartQuiz();
     }
 
     private static void GreetingUserName()

@@ -19,11 +19,11 @@ public class Quiz
             Console.WriteLine($"Question {questionNumber++}");
             DisplayQuestion(question);
 
-            var userChoice = this.GetUserChoice();
+            var userChoice = this.GetUserChoice(question.Answers.Length);
             
             Console.WriteLine(question.IsCorrect(userChoice)
-                ? "Correct! Great \ud83d\udc4c\ud83c\udffd"
-                : "Incorrect! \ud83d\ude14");
+                ? "Great\ud83d\udc4c\ud83c\udffd! That's Correct"
+                : $"Incorrect!\ud83d\ude14, the correct answer was '{question.Answers[question.CorrectAnswerIndex]}'");
         }
     }
 
@@ -45,21 +45,19 @@ public class Quiz
         }
     }
 
-    private int GetUserChoice()
+    private int GetUserChoice(int answersCount)
     {
         Console.WriteLine("Your answer: ");
-        int len = _questions.Length;
-
         while (true)
         {
             if (int.TryParse(Console.ReadLine(), out var choice))
             {
                 // check if choice is within the questions range
-                bool outOfRange = choice < 1 || choice > len;
+                bool outOfRange = choice < 1 || choice > answersCount;
                 if (!outOfRange) return choice - 1;
             }
 
-            Console.WriteLine($"Invalid Choice. Enter a number between 1 and {len}.");
+            Console.WriteLine($"Invalid Choice. Enter a number between 1 and {answersCount}.");
         }
     }
 }

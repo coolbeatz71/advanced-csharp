@@ -13,7 +13,7 @@ public class Question
         this.CorrectAnswerIndex = correctAnswerIndex;
     }
 
-    public bool IsCorrect(int chosenAnswer)
+    public bool IsCorrectAnswer(int chosenAnswer)
     {
         return this.CorrectAnswerIndex == chosenAnswer;
     }

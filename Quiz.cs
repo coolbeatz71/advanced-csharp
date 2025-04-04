@@ -3,9 +3,11 @@ namespace LearningDotNet;
 public class Quiz
 {
     private readonly Question[] _questions;
+    private int _score;
 
     public Quiz(Question[] questions)
     {
+        this._score = 0;
         this._questions = questions;
     }
 
@@ -20,10 +22,48 @@ public class Quiz
             DisplayQuestion(question);
 
             var userChoice = this.GetUserChoice(question.Answers.Length);
+
+            if (question.IsCorrectAnswer(userChoice))
+            {
+                this._score++;
+                Console.WriteLine("Great\ud83d\udc4c\ud83c\udffd! That's Correct");
+            }
+            else
+            {
+                Console.WriteLine($"Incorrect!\ud83d\ude14, the correct answer was '{question.Answers[question.CorrectAnswerIndex]}'");
+            }
+        }
+
+        this.DisplayResult();
+    }
+
+    private void DisplayResult()
+    {
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("======================================");
+        Console.WriteLine("||             RESULTS              ||");
+        Console.WriteLine("======================================");
+        Console.ResetColor();
+
+        Console.WriteLine($"Quiz Finished! \ud83d\ude80. You score is {this._score} out of {this._questions.Length}.");
+        
+        var percentage = (double) this._score / this._questions.Length * 100;
+        
+        var results = new List<(int min, int max, ConsoleColor color, string message)>
+        {
+            (70, 100, ConsoleColor.Green, "Excellent! 🏆"),
+            (60, 69, ConsoleColor.Yellow, "Good! 👍"),
+            (50, 59, ConsoleColor.DarkYellow, "Not Bad! 😐"),
+            (0, 49, ConsoleColor.Red, "Too Bad! ❌")
+        };
+
+        foreach (var (min, max, color, message) in results)
+        {
+            if (!(percentage >= min) || !(percentage <= max)) continue;
             
-            Console.WriteLine(question.IsCorrect(userChoice)
-                ? "Great\ud83d\udc4c\ud83c\udffd! That's Correct"
-                : $"Incorrect!\ud83d\ude14, the correct answer was '{question.Answers[question.CorrectAnswerIndex]}'");
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            break;
         }
     }
 

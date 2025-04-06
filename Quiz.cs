@@ -1,5 +1,8 @@
 namespace LearningDotNet;
 
+/// <summary>
+/// Represents a single quiz session.
+/// </summary>
 public class Quiz
 {
     private readonly Question[] _questions;
@@ -10,7 +13,10 @@ public class Quiz
         this._score = 0;
         this._questions = questions;
     }
-
+    
+    /// <summary>
+    /// Starts the quiz session.
+    /// </summary>
     public void StartQuiz()
     {
         Console.WriteLine("Welcome to the Quiz!");
@@ -36,7 +42,10 @@ public class Quiz
 
         this.DisplayResult();
     }
-
+    
+    /// <summary>
+    /// Displays the final quiz results.
+    /// </summary>
     private void DisplayResult()
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
@@ -66,7 +75,16 @@ public class Quiz
             break;
         }
     }
-
+    
+    /// <summary>
+    /// Displays the question and available answers.
+    /// </summary>
+    /// <param name="question">Question to display.</param>
+    /// <example>
+    /// <code>
+    /// DisplayQuestion(new Question("Title", new[] {"A", "B"}, 0));
+    /// </code>
+    /// </example>
     private void DisplayQuestion(Question question)
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -84,7 +102,17 @@ public class Quiz
             Console.WriteLine($": {question.Answers[i]}.");
         }
     }
-
+    
+    /// <summary>
+    /// Prompts the user to select an answer.
+    /// </summary>
+    /// <param name="answersCount">Total number of answers.</param>
+    /// <returns>Selected answer index (zero-based).</returns>
+    /// <example>
+    /// <code>
+    /// int index = GetUserChoice(4); // waits for input between 1-4
+    /// </code>
+    /// </example>
     private int GetUserChoice(int answersCount)
     {
         Console.WriteLine("Your answer: ");

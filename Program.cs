@@ -141,4 +141,16 @@ internal class Program
 
         new Quiz(questions).StartQuiz();
     }
+
+    private static void CreateLogDirectoryFile(string text)
+    {
+        const string logFolderPath = "Logs";
+        var directoryPath = Directory.GetCurrentDirectory();
+        var filePath = Path.Combine($"{directoryPath}//{logFolderPath}", "debug.log");
+        
+        if (!Directory.Exists(logFolderPath)) Directory.CreateDirectory(logFolderPath);
+        
+        File.AppendAllText(filePath, text);
+        Console.WriteLine("log file created");
+    }
 }

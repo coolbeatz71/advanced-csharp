@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 using LearningDotNet.Enums;
+using LearningDotNet.Interfaces;
 
 namespace LearningDotNet;
 
@@ -150,33 +151,8 @@ internal class Program
 
     private static void CreateLogFile()
     {
-        // Get all methods from the Program class that are static and non-public
-        var methods = typeof(Program).GetMethods(BindingFlags.Static | BindingFlags.NonPublic);
-        
-        // Select the method signature as a string (e.g., "public static void MethodName()")
-        var signatureList = methods
-            .Select(m =>
-            {
-                var methodName = m.Name; // Get the name of the method
-                var returnType = m.ReturnType.Name; // Get the return type of the method
-
-                // Get a comma-separated string of parameters (e.g., "int param1, string param2")
-                var parameters = string.Join(", ",
-                    m.GetParameters() // Get the parameters of the method
-                        .Select(p => $"{p.ParameterType.Name} {p.Name}") // Format each parameter as "type name"
-                );
-
-                // Return a formatted string representing the method's signature
-                return $"private static {returnType} {methodName}({parameters})";
-            });
-
-        // Convert the list of method signatures to an array (if it isn't already)
-        var enumerable = signatureList as string[] ?? signatureList.ToArray();
-
-        // Join all the method signatures into a single string, separated by new lines
-        var result = string.Join("\n", enumerable);
-
-        // Create a new file called "debug.log" inside the "Logs" folder and write the result into it
-        new ReadWriteFile().CreateFile("Logs", "debug.log", result);
+        ILogger textLogger = new TextLogger("Logs", "debug.log");
+        var inspector = new MethodInspector(textLogger);
+        inspector.LogMessage();
     }
 }

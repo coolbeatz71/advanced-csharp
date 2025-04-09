@@ -1,4 +1,6 @@
-﻿using LearningDotNet.Enums;
+﻿using System.Diagnostics;
+using System.Reflection;
+using LearningDotNet.Enums;
 
 namespace LearningDotNet;
 
@@ -20,6 +22,10 @@ internal class Program
         //
         // // Start the Quiz
         Program.RunQuiz();
+        //
+        // // Create Log File
+        // // It contains all the methods belonging to the Program class 
+        Program.CreateLogFile();
     }
 
     private static void GreetingUserName()
@@ -142,15 +148,35 @@ internal class Program
         new Quiz(questions).StartQuiz();
     }
 
-    private static void CreateLogDirectoryFile(string text)
+    private static void CreateLogFile()
     {
-        const string logFolderPath = "Logs";
-        var directoryPath = Directory.GetCurrentDirectory();
-        var filePath = Path.Combine($"{directoryPath}//{logFolderPath}", "debug.log");
+        // Get all methods from the Program class that are static and non-public
+        var methods = typeof(Program).GetMethods(BindingFlags.Static | BindingFlags.NonPublic);
         
-        if (!Directory.Exists(logFolderPath)) Directory.CreateDirectory(logFolderPath);
-        
-        File.AppendAllText(filePath, text);
-        Console.WriteLine("log file created");
+        // Select the method signature as a string (e.g., "public static void MethodName()")
+        var signatureList = methods
+            .Select(m =>
+            {
+                var methodName = m.Name; // Get the name of the method
+                var returnType = m.ReturnType.Name; // Get the return type of the method
+
+                // Get a comma-separated string of parameters (e.g., "int param1, string param2")
+                var parameters = string.Join(", ",
+                    m.GetParameters() // Get the parameters of the method
+                        .Select(p => $"{p.ParameterType.Name} {p.Name}") // Format each parameter as "type name"
+                );
+
+                // Return a formatted string representing the method's signature
+                return $"private static {returnType} {methodName}({parameters})";
+            });
+
+        // Convert the list of method signatures to an array (if it isn't already)
+        var enumerable = signatureList as string[] ?? signatureList.ToArray();
+
+        // Join all the method signatures into a single string, separated by new lines
+        var result = string.Join("\n", enumerable);
+
+        // Create a new file called "debug.log" inside the "Logs" folder and write the result into it
+        new ReadWriteFile().CreateFile("Logs", "debug.log", result);
     }
 }

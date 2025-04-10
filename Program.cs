@@ -17,6 +17,9 @@ internal class Program
         //
         // // Get weather and temperature statistics
         Program.CalculateTemperatureStats();
+        //
+        // // Start the Quiz
+        Program.RunQuiz();
     }
 
     private static void GreetingUserName()
@@ -68,10 +71,10 @@ internal class Program
         Console.WriteLine($"Conditions: [{string.Join(", ", conditions)}]\n");
 
         // the :F1 formats double to only show 1 decimal place (e.g: "23.5") 
-        Console.WriteLine($"- Average temperature: {weather.GetAverageTemperature():F1} °C");
+        Console.WriteLine($"- Average temperature: {weather.GetAverageTemperature():F1}°C");
         
-        Console.WriteLine($"- Minimum temperature: {weather.GetMinTemperature()} °C");
-        Console.WriteLine($"- Maximum temperature: {weather.GetMaxTemperature()} °C");
+        Console.WriteLine($"- Minimum temperature: {weather.GetMinTemperature()}°C");
+        Console.WriteLine($"- Maximum temperature: {weather.GetMaxTemperature()}°C");
         Console.WriteLine($"- Most common condition: '{weather.GetMostCommonCondition()}'");
     }
 
@@ -107,5 +110,35 @@ internal class Program
         }
 
         return (temperatures, conditions);
+    }
+
+    private static void RunQuiz()
+    {
+        var questions = new[]
+        {
+            new Question("What is the Capital City of DR Congo?",
+                ["Kinshasa", "Kigali", "Johannesburg", "Paris"], 0),
+            new Question("What is the square root of 16: (√ 16)?",
+                ["2", "5", "4", "12"], 2),
+            new Question("Which planet is known as the Red Planet?",
+                ["Earth", "Mars", "Jupiter", "Venus"], 1),
+            new Question("In which year did the Titanic sink?",
+                ["1912", "1905", "1898", "1920"], 0),
+            new Question("What is the chemical symbol for Gold?",
+                ["Au", "Ag", "Gd", "Go"], 0),
+            new Question("Who painted the Mona Lisa?",
+                ["Pablo Picasso", "Leonardo da Vinci", "Vincent Van Gogh", "Claude Monet"], 1),
+            new Question("Which country has the most natural lakes?",
+                ["USA", "Russia", "Canada", "Brazil"], 2),
+            new Question("What is the powerhouse of the cell?",
+                ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"], 1),
+            new Question("What is the longest river in the world?",
+                ["Amazon River", "Yangtze River", "Mississippi River", "Nile River"], 3),
+            new Question("In Jeopardy!, what is unique about how answers are given?",
+                ["They are in rhyme", "They must be whispered", "They must be in the form of a question", "They are timed with music"
+                ], 2)
+        };
+
+        new Quiz(questions).StartQuiz();
     }
 }

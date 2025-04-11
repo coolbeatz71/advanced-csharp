@@ -1,11 +1,7 @@
+using LearningDotNet.Interfaces;
+
 namespace LearningDotNet;
-
-public interface ILoggingService
-{
-    void Log(string message);
-}
-
-public class LoggingService : ILoggingService
+public class LoggingService : ILogger
 {
     public void Log(string message)
     {
@@ -13,7 +9,7 @@ public class LoggingService : ILoggingService
     }
 }
 
-public class MyClassConstructorInjection(ILoggingService loggingService)
+public class MyClassConstructorInjection(ILogger loggingService)
 {
     public void PerformAction()
     {
@@ -21,9 +17,9 @@ public class MyClassConstructorInjection(ILoggingService loggingService)
     }
 }
 
-public class MyClassSetterInjection(ILoggingService loggingService)
+public class MyClassSetterInjection(ILogger loggingService)
 {
-    private ILoggingService LoggingService { get; set; } = loggingService;
+    private ILogger LoggingService { get; set; } = loggingService;
 
     public void PerformAction()
     {
@@ -33,14 +29,14 @@ public class MyClassSetterInjection(ILoggingService loggingService)
 
 public interface IDependencyInjector
 {
-    void SetDependency(ILoggingService loggingService);
+    void SetDependency(ILogger loggingService);
 }
 
-public class MyClassInterfaceInjection(ILoggingService loggingService) : IDependencyInjector
+public class MyClassInterfaceInjection(ILogger loggingService) : IDependencyInjector
 {
-    private ILoggingService _loggingService = loggingService;
+    private ILogger _loggingService = loggingService;
 
-    public void SetDependency(ILoggingService loggingService)
+    public void SetDependency(ILogger loggingService)
     {
         _loggingService = loggingService;
     }

@@ -24,9 +24,11 @@ internal class Program
         // // Start the Quiz
         Program.RunQuiz();
         //
-        // // Create Log File
-        // // It contains all the methods belonging to the Program class 
+        // Create Log File: Prints all Program's methods 
         Program.CreateLogFile();
+        //
+        // Print circle and rectangle
+        Program.PrintAreas();
     }
 
     private static void GreetingUserName()
@@ -154,5 +156,11 @@ internal class Program
         ILogger textLogger = new TextLogger("Logs", "debug.log");
         var inspector = new MethodInspector(textLogger);
         inspector.LogMessage();
+    }
+    
+    private static void PrintAreas()
+    {
+        Console.WriteLine($"Area: {new Circle(5).GetArea()}");
+        Console.WriteLine($"Area: {new Rectangle(4, 6).GetArea()}");
     }
 }

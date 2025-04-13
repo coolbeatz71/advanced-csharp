@@ -35,6 +35,9 @@ internal class Program
         //
         // Temperature alert
         Program.MonitorTemperature();
+        //
+        // Stock Price
+        Program.MonitorStockPrice();
     }
 
     private static void GreetingUserName()
@@ -211,6 +214,20 @@ internal class Program
         monitor.OnTemperatureChanged += alert.OnTemperatureChanged;
         
         monitor.Temperature = Program.GetTemperatureInput();
+    }
+
+    private static void MonitorStockPrice()
+    {
+        var monitor = new StockMonitor();
+        var alert = new StockAlert();
+        
+        monitor.OnPriceChanged += alert.OnPriceChanged;
+        
+        monitor.Threshold = 120;
+
+        monitor.Price = 150;
+        monitor.Price = 130;
+        monitor.Price = 100;
     }
     
     private static double GetTemperatureInput()

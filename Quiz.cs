@@ -3,17 +3,10 @@ namespace LearningDotNet;
 /// <summary>
 /// Represents a single quiz session.
 /// </summary>
-public class Quiz
+public class Quiz(Question[] questions)
 {
-    private readonly Question[] _questions;
-    private int _score;
+    private int _score = 0;
 
-    public Quiz(Question[] questions)
-    {
-        this._score = 0;
-        this._questions = questions;
-    }
-    
     /// <summary>
     /// Starts the quiz session.
     /// </summary>
@@ -22,7 +15,7 @@ public class Quiz
         Console.WriteLine("Welcome to the Quiz!");
         var questionNumber = 1;
 
-        foreach (var question in this._questions)
+        foreach (var question in questions)
         {
             Console.WriteLine($"Question {questionNumber++}");
             DisplayQuestion(question);
@@ -54,9 +47,9 @@ public class Quiz
         Console.WriteLine("======================================");
         Console.ResetColor();
 
-        Console.WriteLine($"Quiz Finished! \ud83d\ude80. You score is {this._score} out of {this._questions.Length}.");
+        Console.WriteLine($"Quiz Finished! \ud83d\ude80. You score is {this._score} out of {questions.Length}.");
         
-        var percentage = (double) this._score / this._questions.Length * 100;
+        var percentage = (double) this._score / questions.Length * 100;
         
         var results = new List<(int min, int max, ConsoleColor color, string message)>
         {
@@ -72,6 +65,7 @@ public class Quiz
             
             Console.ForegroundColor = color;
             Console.WriteLine(message);
+            Console.ResetColor();
             break;
         }
     }

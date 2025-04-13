@@ -9,19 +9,19 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        // // Get user's name and print a greeting
+        // Get user's name and print a greeting
         Program.GreetingUserName();
         //
-        // // Simulate a rocket landing
+        // Simulate a rocket landing
         Program.SimulateRocketLanding();
         //
-        // // Work with a 2D array and calculate row sums
+        // Work with a 2D array and calculate row sums
         Program.CalculateRowSums();
         //
-        // // Get weather and temperature statistics
+        // Get weather and temperature statistics
         Program.CalculateTemperatureStats();
         //
-        // // Start the Quiz
+        // Start the Quiz
         Program.RunQuiz();
         //
         // Create Log File: Prints all Program's methods 
@@ -32,6 +32,9 @@ internal class Program
         //
         // Bubble sort by age and name
         Program.BubbleSortPerson();
+        //
+        // Temperature alert
+        Program.MonitorTemperature();
     }
 
     private static void GreetingUserName()
@@ -197,6 +200,26 @@ internal class Program
         foreach (var person in persons)
         {
             Console.WriteLine($"{person.Name} - {person.Age}");
+        }
+    }
+
+    private static void MonitorTemperature()
+    {
+        var monitor = new TemperatureMonitor();
+        var alert = new TemperatureAlert();
+        
+        monitor.OnTemperatureChanged += alert.OnTemperatureChanged;
+        
+        monitor.Temperature = Program.GetTemperatureInput();
+    }
+    
+    private static double GetTemperatureInput()
+    {
+        Console.WriteLine("Please enter a temperature:");
+        while (true)
+        {
+            if (double.TryParse(Console.ReadLine(), out var temp)) return temp;
+            Console.WriteLine("Invalid input. Please enter a valid number:");
         }
     }
 }

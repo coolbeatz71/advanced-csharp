@@ -26,7 +26,7 @@ public class Person(string name, int age)
 /// <summary>
 /// Provides sorting functionality for arrays of <see cref="Person"/> using a custom comparison delegate.
 /// </summary>
-public class PersonSorter
+public abstract class PersonSorter
 {
     /// <summary>
     /// Sorts an array of <see cref="Person"/> objects in-place using the specified comparison logic.

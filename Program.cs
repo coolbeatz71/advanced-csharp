@@ -29,6 +29,9 @@ internal class Program
         //
         // Print circle and rectangle
         Program.PrintAreas();
+        //
+        // Bubble sort by age and name
+        Program.BubbleSortPerson();
     }
 
     private static void GreetingUserName()
@@ -162,5 +165,38 @@ internal class Program
     {
         Console.WriteLine($"Area: {new Circle(5).GetArea()}");
         Console.WriteLine($"Area: {new Rectangle(4, 6).GetArea()}");
+    }
+
+    private static void BubbleSortPerson()
+    {
+        Person[] persons =
+        [
+            new Person("Alice", 22),
+            new Person("Charlie", 20),
+            new Person("Bob", 25),
+            new Person("Diana", 23),
+            new Person("Ethan", 21),
+            new Person("Fiona", 24),
+            new Person("George", 19),
+            new Person("Hannah", 22),
+            new Person("Ian", 26),
+            new Person("Jasmine", 20)
+        ];
+
+        PersonSorter.Sort(persons, Comparer.ByName);
+        Program.DisplaySorted("name", persons);
+
+        PersonSorter.Sort(persons, Comparer.ByAge);
+        Program.DisplaySorted("age", persons);
+    }
+    
+    private static void DisplaySorted(string title, Person[] persons)
+    {
+        Console.WriteLine($"\nSorted by {title.ToUpper()}:");
+        Console.WriteLine(new string('=', 12));
+        foreach (var person in persons)
+        {
+            Console.WriteLine($"{person.Name} - {person.Age}");
+        }
     }
 }

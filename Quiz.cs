@@ -47,7 +47,7 @@ public class Quiz(Question[] questions)
         Console.WriteLine("======================================");
         Console.ResetColor();
 
-        Console.WriteLine($"Quiz Finished! \ud83d\ude80. You score is {this._score} out of {questions.Length}.");
+        Console.WriteLine($"Quiz Finished! \ud83d\ude80. Your score is {this._score} out of {questions.Length}.");
         
         var percentage = (double) this._score / questions.Length * 100;
         

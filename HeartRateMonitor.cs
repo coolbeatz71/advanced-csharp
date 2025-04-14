@@ -1,5 +1,10 @@
 namespace LearningDotNet;
 
+/// <summary>
+/// Provides data for the <see cref="HeartRateMonitor.OnHeartRateChanged"/> event.
+/// Contains the heart rate value that triggered the alert.
+/// </summary>
+/// <param name="heartRate">The current heart rate that exceeded the threshold.</param>
 public class HeartRateChangeEventArgs(double heartRate) : EventArgs
 {
     public double HeartRate { get; } = heartRate;
@@ -36,11 +41,15 @@ public class HeartRateMonitor
             if (_heartRate > 100)
             {
                 // Trigger event if threshold is exceeded
-                this.TriggerChangedEvent("Heart Rate Above Normal Range");
+                this.TriggerChangedEvent(new HeartRateChangeEventArgs(value));
             }
         }
     }
     
+    /// <summary>
+    /// Invokes the <see cref="OnHeartRateChanged"/> event with the provided event data.
+    /// </summary>
+    /// <param name="eventArgs">The event data containing the heart rate value.</param>
     private void TriggerChangedEvent(HeartRateChangeEventArgs eventArgs)
     {
         OnHeartRateChanged?.Invoke(this, eventArgs);
@@ -52,8 +61,21 @@ public class HeartRateMonitor
 /// </summary>
 public class HeartRateAlert
 {
+    /// <summary>
+    /// Responds to the heart rate change event by printing an alert to the console.
+    /// </summary>
+    /// <param name="sender">The source of the event (typically the <see cref="HeartRateMonitor"/>).</param>
+    /// <param name="eventArgs">The event arguments containing the heart rate information.</param>
+    /// <example>
+    /// <code>
+    /// var monitor = new HeartRateMonitor();
+    /// var alert = new HeartRateAlert();
+    /// monitor.OnHeartRateChanged += alert.OnHeartRateChanged;
+    /// monitor.HeartRate = 110; // Triggers console alert
+    /// </code>
+    /// </example>
     public void OnHeartRateChanged(object? sender, HeartRateChangeEventArgs eventArgs)
     {
-        Console.WriteLine($"Alert: {eventArgs.HeartRate}");
+        Console.WriteLine($"Alert: {eventArgs.HeartRate}BPM - Dangerously Above The Threshold");
     }
 }

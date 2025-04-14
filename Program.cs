@@ -38,6 +38,9 @@ internal class Program
         //
         // Stock Price
         Program.MonitorStockPrice();
+        //
+        // Simple Heart Rate 
+        Program.MonitorHeartRate();
     }
 
     private static void GreetingUserName()
@@ -228,6 +231,16 @@ internal class Program
         monitor.Price = 150;
         monitor.Price = 130;
         monitor.Price = 100;
+    }
+    
+    private static void MonitorHeartRate()
+    {
+        var monitor = new HeartRateMonitor();
+        var alert = new HeartRateAlert();
+        
+        monitor.OnHeartRateChanged += alert.OnHeartRateChanged;
+        
+        monitor.HeartRate = 150;
     }
     
     private static double GetTemperatureInput()

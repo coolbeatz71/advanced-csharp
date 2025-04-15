@@ -41,6 +41,9 @@ internal class Program
         //
         // Simple Heart Rate 
         Program.MonitorHeartRate();
+        //
+        // Advanced Heart Rate 
+        Program.AdvancedMonitorHeartRate();
     }
 
     private static void GreetingUserName()
@@ -216,7 +219,12 @@ internal class Program
         
         monitor.OnTemperatureChanged += alert.OnTemperatureChanged;
         
-        monitor.Temperature = Program.GetTemperatureInput();
+        monitor.Temperature = Program.GetValidatedInput<double>(
+            "Please enter the temperature in Celsius:",
+            input => (double.TryParse(input, out var val), val),
+            temp => temp is > -100 and < 100,
+            "Temperature should be between -100 and 100 degrees Celsius."
+        );;
     }
 
     private static void MonitorStockPrice()
@@ -240,16 +248,58 @@ internal class Program
         
         monitor.OnHeartRateChanged += alert.OnHeartRateChanged;
         
-        monitor.HeartRate = 150;
+        monitor.HeartRate = GetValidatedInput(
+            "Enter your current heart rate (BPM):",
+            input => (int.TryParse(input, out var val), val),
+            bpm => bpm is > 30 and < 220,
+            "Heart rate must be a realistic number between 30 and 220 BPM."
+        );
     }
     
-    private static double GetTemperatureInput()
+    private static void AdvancedMonitorHeartRate()
     {
-        Console.WriteLine("Please enter a temperature:");
+        var monitor = new AdvancedHeartRateMonitor();
+        var alert = new AdvancedHeartRateAlert();
+        
+        monitor.OnHeartRateChanged += alert.OnHeartRateChanged;
+        
+        var heartRate = GetValidatedInput(
+            "Enter your current heart rate (BPM):",
+            input => (int.TryParse(input, out var val), val),
+            bpm => bpm is > 30 and < 220,
+            "Heart rate must be a realistic number between 30 and 220 BPM."
+        );
+        
+        var age = GetValidatedInput(
+            "Enter your age:",
+            input => (int.TryParse(input, out var val), val),
+            age => age is >= 1 and <= 120,
+            "Please enter a valid age between 1 and 120."
+        );
+        
+        monitor.TriggerChangedEvent(age, heartRate);
+    }
+    
+    private static T GetValidatedInput<T>(
+        string prompt,
+        Func<string?, (bool success, T value)> parser,
+        Func<T, bool>? validate = null,
+        string? errorMessage = null)
+    {
         while (true)
         {
-            if (double.TryParse(Console.ReadLine(), out var temp)) return temp;
-            Console.WriteLine("Invalid input. Please enter a valid number:");
+            Console.WriteLine(prompt);
+            var input = Console.ReadLine();
+            var (success, value) = parser(input);
+
+            if (!success)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid value.");
+                continue;
+            }
+
+            if (validate == null || validate(value)) return value;
+            Console.WriteLine(errorMessage ?? "Input did not meet validation requirements.");
         }
     }
 }

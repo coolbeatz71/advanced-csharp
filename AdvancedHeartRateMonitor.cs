@@ -33,9 +33,9 @@ public class AdvancedHeartRateAlert
         var upperTarget = maxHeartRate * 0.85;
         
         Console.WriteLine($"\nAge: {args.Age}");
-        Console.WriteLine($"Heart Rate: {args.HeartRate} BPM");
-        Console.WriteLine($"Estimated Max Heart Rate: {maxHeartRate} BPM");
-        Console.WriteLine($"Target Heart Rate Zone: {lowerTarget:F0} - {upperTarget:F0} BPM");
+        Console.WriteLine($"Heart Rate: {args.HeartRate}BPM");
+        Console.WriteLine($"Estimated Max Heart Rate: {maxHeartRate}BPM");
+        Console.WriteLine($"Target Heart Rate Zone: {lowerTarget:F0} - {upperTarget:F0}BPM");
         
         var heartRate = args.HeartRate;
         var message = heartRate switch

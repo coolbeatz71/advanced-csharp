@@ -44,6 +44,9 @@ internal class Program
         //
         // Advanced Heart Rate 
         Program.AdvancedMonitorHeartRate();
+        //
+        // Example of Generics
+        Program.GetGenericTaskReport();
     }
 
     private static void GreetingUserName()
@@ -302,4 +305,20 @@ internal class Program
             Console.WriteLine(errorMessage ?? "Input did not meet validation requirements.");
         }
     }
+
+    private static void GetGenericTaskReport()
+    {
+        const string message = "Hello, his is a message email";
+        const string recipient = "jean-vincent.mutombo@gmail.com";
+        
+        var emailTask = new EmailTask(message, recipient);
+        var reportTask = new ReportTask("Monthly-Report");
+        
+        var emailProcessor = new TaskProcessor<EmailTask, string>(emailTask);
+        var reportProcessor = new TaskProcessor<ReportTask, string>(reportTask);
+
+        Console.WriteLine(emailProcessor.Execute());
+        Console.WriteLine(reportProcessor.Execute());
+    }
 }
+

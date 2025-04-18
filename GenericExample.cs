@@ -1,14 +1,14 @@
 namespace LearningDotNet;
 
-public interface ITask<TResult>
+public interface ITask<out TResult>
 {
     public TResult Perform();
 }
 
 public class EmailTask(string message, string recipient) : ITask<string>
 {
-    private string Message { get; set; } = message;
-    private string Recipient { get; set; } = recipient;
+    private string Message { get; } = message;
+    private string Recipient { get; } = recipient;
 
     public string Perform()
     {
@@ -18,7 +18,7 @@ public class EmailTask(string message, string recipient) : ITask<string>
 
 public class ReportTask(string reportName) : ITask<string>
 {
-    private string ReportName { get; set; } = reportName;
+    private string ReportName { get; } = reportName;
 
     public string Perform()
     {

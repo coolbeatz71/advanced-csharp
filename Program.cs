@@ -7,47 +7,47 @@ namespace LearningDotNet;
 
 internal class Program
 {
-    private static void Main(string[] args)
-    {
-        // Get user's name and print a greeting
-        Program.GreetingUserName();
-        //
-        // Simulate a rocket landing
-        Program.SimulateRocketLanding();
-        //
-        // Work with a 2D array and calculate row sums
-        Program.CalculateRowSums();
-        //
-        // Get weather and temperature statistics
-        Program.CalculateTemperatureStats();
-        //
-        // Start the Quiz
-        Program.RunQuiz();
-        //
-        // Create Log File: Prints all Program's methods 
-        Program.CreateLogFile();
-        //
-        // Print circle and rectangle
-        Program.PrintAreas();
-        //
-        // Bubble sort by age and name
-        Program.BubbleSortPerson();
-        //
-        // Temperature alert
-        Program.MonitorTemperature();
-        //
-        // Stock Price
-        Program.MonitorStockPrice();
-        //
-        // Simple Heart Rate 
-        Program.MonitorHeartRate();
-        //
-        // Advanced Heart Rate 
-        Program.AdvancedMonitorHeartRate();
-        //
-        // Example of Generics
-        Program.GetGenericTaskReport();
-    }
+    // private static void Main(string[] args)
+    // {
+    //     // Get user's name and print a greeting
+    //     Program.GreetingUserName();
+    //     //
+    //     // Simulate a rocket landing
+    //     Program.SimulateRocketLanding();
+    //     //
+    //     // Work with a 2D array and calculate row sums
+    //     Program.CalculateRowSums();
+    //     //
+    //     // Get weather and temperature statistics
+    //     Program.CalculateTemperatureStats();
+    //     //
+    //     // Start the Quiz
+    //     Program.RunQuiz();
+    //     //
+    //     // Create Log File: Prints all Program's methods 
+    //     Program.CreateLogFile();
+    //     //
+    //     // Print circle and rectangle
+    //     Program.PrintAreas();
+    //     //
+    //     // Bubble sort by age and name
+    //     Program.BubbleSortPerson();
+    //     //
+    //     // Temperature alert
+    //     Program.MonitorTemperature();
+    //     //
+    //     // Stock Price
+    //     Program.MonitorStockPrice();
+    //     //
+    //     // Simple Heart Rate 
+    //     Program.MonitorHeartRate();
+    //     //
+    //     // Advanced Heart Rate 
+    //     Program.AdvancedMonitorHeartRate();
+    //     //
+    //     // Example of Generics
+    //     Program.GetGenericTaskReport();
+    // }
 
     private static void GreetingUserName()
     {
@@ -118,11 +118,11 @@ internal class Program
         }
     }
 
-    private static (int[] temperatures, string[] conditions) GenerateWeatherData(int days)
+    private static (int[]? temperatures, string[]? conditions) GenerateWeatherData(int days)
     {
         Random random = new Random();
         int[] temperatures = new int[days];
-        string[] conditions = new string[days];
+        string[]? conditions = new string[days];
 
         for (int i = 0; i < days; i++)
         {

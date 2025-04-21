@@ -70,4 +70,20 @@ public class TemperatureMonitorTest
         messages.Should().HaveCount(2);
         messages.Should().Contain("Body Temperature Above Threshold");
     }
+    
+    [Fact]
+    public void OnTemperatureChanged_PrintsCorrectMessageToConsole()
+    {
+        // Arrange
+        var alert = new TemperatureAlert();
+        using var consoleOutput = new StringWriter();
+        Console.SetOut(consoleOutput);
+
+        // Act
+        alert.OnTemperatureChanged("High temperature!");
+
+        // Assert
+        var output = consoleOutput.ToString();
+        output.Should().Contain("Alert: High temperature!");
+    }
 }

@@ -93,9 +93,9 @@ internal class Program
 
         var (temperatures, conditions) = Program.GenerateWeatherData(days);
         Weather weather = new Weather(temperatures, conditions);
-        
-        Console.WriteLine($"Temperatures: [{string.Join(", ", temperatures)}]");
-        Console.WriteLine($"Conditions: [{string.Join(", ", conditions)}]\n");
+
+        if (temperatures != null) Console.WriteLine($"Temperatures: [{string.Join(", ", temperatures)}]");
+        if (conditions != null) Console.WriteLine($"Conditions: [{string.Join(", ", conditions)}]\n");
 
         // the :F1 formats double to only show 1 decimal place (e.g: "23.5") 
         Console.WriteLine($"- Average temperature: {weather.GetAverageTemperature():F1}°C");

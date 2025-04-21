@@ -3,7 +3,7 @@ using Xunit;
 
 namespace LearningDotNet.LearningDotNetTest.Domain;
 
-public class StructDateTimeTest
+public class StructDateTimeTests
 {
     [Fact]
     public void Constructor_WithValidDates_ShouldCreateEvent()

@@ -3,7 +3,7 @@ using Xunit;
 
 namespace LearningDotNet.LearningDotNetTest.Domain;
 
-public class TemperatureMonitorTest
+public class TemperatureMonitorTests
 {
     [Fact]
     public void Temperature_SetBelowThreshold_DoesNotTriggerEvent()

@@ -3,7 +3,7 @@ using Xunit;
 
 namespace LearningDotNet.LearningDotNetTest.Domain;
 
-public class StockMonitorTest
+public class StockMonitorTests
 {
    [Fact]
     public void SettingPrice_AboveThreshold_ShouldNotTriggerAlert()

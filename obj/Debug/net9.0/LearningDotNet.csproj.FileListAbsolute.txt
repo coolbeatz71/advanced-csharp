@@ -95,3 +95,4 @@
 /Users/coolbeatz/projects/learn-dotnet/bin/Debug/net9.0/zh-Hant/Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 /Users/coolbeatz/projects/learn-dotnet/bin/Debug/net9.0/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 /Users/coolbeatz/projects/learn-dotnet/bin/Debug/net9.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+/Users/coolbeatz/projects/learn-dotnet/bin/Debug/net9.0/FluentAssertions.dll

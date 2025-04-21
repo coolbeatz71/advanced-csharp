@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "FXyZKjQGYsI=",
+  "dgSpecHash": "XQnMyJf7trk=",
   "success": true,
   "projectFilePath": "/Users/coolbeatz/projects/learn-dotnet/LearningDotNet.csproj",
   "expectedPackageFiles": [
+    "/Users/coolbeatz/.nuget/packages/awesomeassertions/8.1.0/awesomeassertions.8.1.0.nupkg.sha512",
     "/Users/coolbeatz/.nuget/packages/microsoft.codecoverage/17.13.0/microsoft.codecoverage.17.13.0.nupkg.sha512",
     "/Users/coolbeatz/.nuget/packages/microsoft.net.test.sdk/17.13.0/microsoft.net.test.sdk.17.13.0.nupkg.sha512",
     "/Users/coolbeatz/.nuget/packages/microsoft.testplatform.objectmodel/17.13.0/microsoft.testplatform.objectmodel.17.13.0.nupkg.sha512",

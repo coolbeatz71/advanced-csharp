@@ -16,6 +16,11 @@
     &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.WeatherTests&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TextLogTests&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TextLoggerTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.Temperature_SetBelowThreshold_DoesNotTriggerEvent&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.Temperature_SetAboveThreshold_TriggersEventWithCorrectMessage&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.Temperature_SetExactlyAtThreshold_DoesNotTriggerEvent&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.Temperature_SetMultipleTimes_EventTriggersOnlyWhenAboveThreshold&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.OnTemperatureChanged_PrintsCorrectMessageToConsole&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>

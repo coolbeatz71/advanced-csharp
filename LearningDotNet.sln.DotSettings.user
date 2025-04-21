@@ -6,6 +6,9 @@
     &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.WeatherTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b0f4ca7e_002De3e2_002D4492_002Daeea_002D945fdd4da446/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WeatherTests #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cf14e755_002Da94b_002D47d2_002Da01f_002D8a49c5c70c47/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="WeatherTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.WeatherTest&lt;/TestId&gt;

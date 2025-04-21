@@ -1,4 +1,5 @@
 using LearningDotNet.Interfaces;
+using LearningDotNet.LearningDotNetTest.Domain;
 
 namespace LearningDotNet;
 
@@ -36,6 +37,7 @@ public class TextLogger(string folderName, string fileName) : ILogger
         if (!Directory.Exists(FolderPath)) Directory.CreateDirectory(FolderPath);
 
         File.AppendAllText(FilePath, message + Environment.NewLine);
-        Console.WriteLine($"Log written to: {FilePath}");
+        
+        if(!TestHelper.IsTest()) Console.WriteLine($"Log written to: {FilePath}");
     }
 }

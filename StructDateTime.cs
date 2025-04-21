@@ -60,23 +60,3 @@ public readonly struct Event
         return StartDate < otherEvent.EndDate && otherEvent.StartDate < EndDate;
     }
 }
-
-public class Exercise
-{
-    public void TestEvents()
-    {
-        var eventOne = new Event(
-            new DateTime(2024, 07, 01),
-            new DateTime(2024, 07, 10)
-        );
-
-        var eventTwo = new Event(
-            new DateTime(2024, 07, 05),
-            new DateTime(2024, 07, 15)
-        );
-
-        Console.WriteLine($"Event 1 Duration: {eventOne.GetDurationInDays()} days");
-        Console.WriteLine($"Event 2 Duration: {eventTwo.GetDurationInDays()} days");
-        Console.WriteLine($"Events Overlap: {eventOne.IsOverlapping(eventTwo)}");
-    }
-}

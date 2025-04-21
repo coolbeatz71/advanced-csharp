@@ -78,6 +78,6 @@ public class StockAlert
     /// </example>
     public void OnPriceChanged(string message)
     {
-        Console.WriteLine(message);
+        Console.WriteLine($"Alert: {message}");
     }
 }

@@ -76,14 +76,15 @@ public class TemperatureMonitorTest
     {
         // Arrange
         var alert = new TemperatureAlert();
-        using var consoleOutput = new StringWriter();
+        var consoleOutput = new StringWriter();
         Console.SetOut(consoleOutput);
+        const string message = "High temperature!";
 
         // Act
-        alert.OnTemperatureChanged("High temperature!");
+        alert.OnTemperatureChanged(message);
 
         // Assert
         var output = consoleOutput.ToString();
-        output.Should().Contain("Alert: High temperature!");
+        output.Trim().Should().Be($"Alert: {message}");
     }
 }

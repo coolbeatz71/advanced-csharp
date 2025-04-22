@@ -1,2 +1,29 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AStackTrace_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2024_002E3_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F7963d2beb05f4e73a3774d3a0f11cd7bf82e00_003Fdf_003F99a86ed7_003FStackTrace_002Ecs/@EntryIndexedValue">ForceIncluded</s:String></wpf:ResourceDictionary>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AIDisposable_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2024_002E3_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F7963d2beb05f4e73a3774d3a0f11cd7bf82e00_003F0a_003F657f346b_003FIDisposable_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AStackTrace_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2024_002E3_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F7963d2beb05f4e73a3774d3a0f11cd7bf82e00_003Fdf_003F99a86ed7_003FStackTrace_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5fb3a02b_002D9359_002D437e_002D9a15_002Da720fdce0043/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="WeatherTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.WeatherTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b0f4ca7e_002De3e2_002D4492_002Daeea_002D945fdd4da446/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WeatherTests #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cf14e755_002Da94b_002D47d2_002Da01f_002D8a49c5c70c47/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="WeatherTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.WeatherTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eaa37a61_002Df879_002D487c_002Da138_002D5d81e8f7cb67/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WeatherTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.WeatherTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TextLogTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TextLoggerTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.Temperature_SetBelowThreshold_DoesNotTriggerEvent&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.Temperature_SetAboveThreshold_TriggersEventWithCorrectMessage&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.Temperature_SetExactlyAtThreshold_DoesNotTriggerEvent&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.Temperature_SetMultipleTimes_EventTriggersOnlyWhenAboveThreshold&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::EFF74BDE-73B3-43FE-B927-3628C6E96AAB::net9.0::LearningDotNet.LearningDotNetTest.Domain.TemperatureMonitorTest.OnTemperatureChanged_PrintsCorrectMessageToConsole&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>

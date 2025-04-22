@@ -1,3 +1,5 @@
+using LearningDotNet.LearningDotNetTest.Domain;
+
 namespace LearningDotNet;
 
 /// <summary>
@@ -42,9 +44,13 @@ public class Quiz(Question[] questions)
     private void DisplayResult()
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine("======================================");
-        Console.WriteLine("||             RESULTS              ||");
-        Console.WriteLine("======================================");
+
+        if (!TestHelper.IsTest())
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("||             RESULTS              ||");
+            Console.WriteLine("======================================");
+        }
         Console.ResetColor();
 
         Console.WriteLine($"Quiz Finished! \ud83d\ude80. Your score is {this._score} out of {questions.Length}.");

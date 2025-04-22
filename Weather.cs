@@ -4,7 +4,7 @@ namespace LearningDotNet;
 /// Provides weather-related calculations and statistics.
 /// This class contains methods for analyzing temperature data and weather conditions.
 /// </summary>
-public class Weather(int[] temperatures, string[] conditions)
+public class Weather(int[]? temperatures, string[]? conditions)
 {
     private int[] Temperatures { get; } = temperatures ?? throw new ArgumentNullException(nameof(temperatures));
     private string[] Conditions { get; } = conditions ?? throw new ArgumentNullException(nameof(conditions));
